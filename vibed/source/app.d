@@ -35,12 +35,14 @@ class CompanyController : ICompanyController {
 }
 
 shared static this() {
-    client = new shared PostgresClient("host=172.17.0.3 dbname=ecratum user=postgres password=postgres", 4);
+    client = new shared PostgresClient("host=172.17.0.3 dbname=ecratum user=postgres password=postgres", 8);
     
 	  auto router = new URLRouter;
     router.registerRestInterface(new CompanyController);
 
     auto settings = new HTTPServerSettings;
     settings.port = 8080;
+    settings.options |= HTTPServerOption.distribute;
+
     listenHTTP(settings, router);
 }
