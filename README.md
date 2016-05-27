@@ -6,6 +6,10 @@ The all three project do the same thing which is :
 
 - Connecting to postgresql, fetch rows from a table and display them as json through a HTTP Server.  
 
+## Sql dump 
+
+50 rows in a database
+
 All the benchmarks are made with [wg](https://github.com/wg/wrk)
 
 # Env for all benchmarks
@@ -25,9 +29,9 @@ All the benchmarks are made with [wg](https://github.com/wg/wrk)
 
 Seconds | Dlang         | Node              | Ruby           |
 --------| ------------- |:-----------------:| --------------:|
-10s     | Req/Sec 28.99 | Req/Sec 223.25  | Req/Sec 31.40  |
-30s     | Req/Sec 29.35 | Req/Sec 272.95  | Req/Sec 31.56 |
-1m      | Req/Sec 29.23   | Req/Sec 293.03  | Req/Sec 29.44 |
+10s     | Req/Sec 839.42| Req/Sec 223.25  | Req/Sec 31.40  |
+30s     | Req/Sec 601.74| Req/Sec 272.95  | Req/Sec 31.56 |
+1m      | Req/Sec 487.65| Req/Sec 293.03  | Req/Sec 29.44 |
 
 
 # 
