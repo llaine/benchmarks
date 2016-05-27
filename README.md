@@ -28,5 +28,6 @@ Seconds | Dlang         | Node              | Ruby           |
 10s     | Req/Sec 10.41 | Req/Sec 223.25  | Req/Sec 31.40  |
 30s     | Req/Sec 4.37k | Req/Sec 272.95  | Req/Sec 31.56 |
 1m      | Req/Sec 3.49  | Req/Sec 293.03  | Req/Sec 29.44 |
-5m      | zebra stripes | are neat      |    $1 |
-10m     | zebra stripes | are neat      |    $1 |
+
+
+# 
