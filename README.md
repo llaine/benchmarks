@@ -1,6 +1,8 @@
 # Benchmarks
 
-Tiny comparison between dlang using Vibe.d, nodejs using express and Ruby with Sinatra
+Tiny comparison between dlang using Vibe.d, nodejs using express and Ruby with Sinatra.
+
+My point here is to try to figure it out with 
 
 The all three project do the same thing which is :  
 
@@ -23,15 +25,15 @@ All the benchmarks are made with [wg](https://github.com/wg/wrk)
 
 `wrk -t10 -c10 -d10s http://localhost:3000`
 
-- Node : v5.11.0 with express `node app.js`
+- Node : v5.11.0 with express `NODE_ENV=production node app.js`
 - Ruby : 2.2.3 with sinatra and Puma `rackup -E production;`
 - Dlang : DMD64 D Compiler v2.071.0 with vibe.d `dub build --config=application --build=release ; ./vibed`
 
-Seconds | Dlang         | Node              | Ruby           |
---------| ------------- |:-----------------:| --------------:|
-10s     | Req/Sec 839.42| Req/Sec 223.25  | Req/Sec 31.40  |
-30s     | Req/Sec 601.74| Req/Sec 272.95  | Req/Sec 31.56 |
-1m      | Req/Sec 487.65| Req/Sec 293.03  | Req/Sec 29.44 |
+Seconds | Dlang         | Node            | Ruby           |
+--------| ------------- |:---------------:| --------------:|
+10s     | Req/Sec 717.65| Req/Sec 284.25  | Req/Sec 32.74  |
+30s     | Req/Sec 632.92| Req/Sec 300.80  | Req/Sec 33.13 |
+1m      | Req/Sec 755.51| Req/Sec 293.72  | Req/Sec 32.92 |
 
 
 # 
