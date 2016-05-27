@@ -6,6 +6,10 @@ The all three project do the same thing which is :
 
 - Connecting to postgresql, fetch rows from a table and display them as json through a HTTP Server.  
 
+## Sql dump 
+
+50 rows in a database
+
 All the benchmarks are made with [wg](https://github.com/wg/wrk)
 
 # Env for all benchmarks
