@@ -10,7 +10,7 @@ The all three project do the same thing which is :
 
 ## Sql dump 
 
-50 rows in a database
+1500 entries in a database selecting only 100
 
 All the benchmarks are made with [wg](https://github.com/wg/wrk)
 
