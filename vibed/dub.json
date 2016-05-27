@@ -8,7 +8,7 @@
 	"description": "A simple vibe.d server application.",
 	"dependencies": {
 		"vibe-d": "~>0.7.26",
-		"dpq": "~>0.8.6"
+		"vibe-d-postgresql": "~>0.2.19"
 	},
 	"versions": [
 		"VibeDefaultMain"

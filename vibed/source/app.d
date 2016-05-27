@@ -1,47 +1,44 @@
+import std.stdio;
+
 import vibe.d;
-import dpq.connection;
-import dpq.value;
-import dpq.attributes;
-import dpq.query;
-import dpq.result;
+import vibe.db.postgresql;
+
+shared PostgresClient client;
+
 
 interface ICompanyController {
   struct Company {
-      int id;
+      string id;
       string name;
   }
   
-  @path("/companies")
+  @path("/")
   Company[] getCompanies();
 }
 
 class CompanyController : ICompanyController {
   private Company[] companies;
-  private Connection database;
 
-  this(Connection database) {
-    this.database = database;
-  }
+  this() {}
   
-   Company[] getCompanies() {
-    Query q = Query(database, "SELECT id, name from companies LIMIT 10000");
-    Result r = q.run();
+   Company[] getCompanies() { 
+    auto conn = client.lockConnection();
+    immutable result = conn.execStatement("SELECT id, name from companies LIMIT 10000", ValueFormat.TEXT);
+    delete conn;
     
-    foreach (row; r) {
-      Company company = Company(row["id"].as!int, row["name"].as!string);
-      companies ~= company;
+    for (auto i = 0; i < result.length; ++i) {
+      companies ~= Company(result[i]["id"].as!PGtext, result[i]["name"].as!PGtext);
     }
-
-    return companies;
+          
+    return companies;    
   }
 }
 
-shared static this()
-{
-    Connection database = Connection("host=172.17.0.3 dbname=ecratum user=postgres password=postgres");
+shared static this() {
+    client = new shared PostgresClient("host=172.17.0.3 dbname=ecratum user=postgres password=postgres", 4);
     
 	  auto router = new URLRouter;
-    router.registerRestInterface(new CompanyController(database));
+    router.registerRestInterface(new CompanyController);
 
     auto settings = new HTTPServerSettings;
     settings.port = 8080;
