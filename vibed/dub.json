@@ -7,7 +7,7 @@
 	"copyright": "none",
 	"description": "A simple vibe.d server application.",
 	"dependencies": {
-		"vibe-d": "~>0.7.26",
+		"vibe-d": "~>0.7.28",
 		"vibe-d-postgresql": "~>0.2.19"
 	},
 	"versions": [

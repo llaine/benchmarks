@@ -17,20 +17,20 @@ interface ICompanyController {
 }
 
 class CompanyController : ICompanyController {
-  private Company[] companies;
-
   this() {}
   
-   Company[] getCompanies() { 
+  Company[] getCompanies() { 
     auto conn = client.lockConnection();
     immutable result = conn.execStatement("SELECT id, name from companies LIMIT 10000", ValueFormat.TEXT);
     delete conn;
     
-    for (auto i = 0; i < result.length; ++i) {
-      companies ~= Company(result[i]["id"].as!PGtext, result[i]["name"].as!PGtext);
-    }
-          
-    return companies;    
+    import std.algorithm : map;
+    import std.array : array;
+
+    return result
+      .rangify
+      .map!(row => Company(row["id"].as!PGtext, row["name"].as!PGtext))
+      .array;
   }
 }
 
@@ -42,7 +42,6 @@ shared static this() {
 
     auto settings = new HTTPServerSettings;
     settings.port = 8080;
-    settings.options |= HTTPServerOption.distribute;
 
     listenHTTP(settings, router);
 }
