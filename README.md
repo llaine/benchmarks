@@ -2,11 +2,7 @@
 
 Tiny comparison between dlang using Vibe.d, nodejs using express and Ruby with Sinatra.
 
-My point here is to try to figure it out with 
-
-The all three project do the same thing which is :  
-
-- Connecting to postgresql, fetch rows from a table and display them as json through a HTTP Server.  
+My point here is to do a benchmark on a real daily use case, such as loading n entries from a DB and showing them as JSON using a normal framework. By normal I mean something that is not too much low level.
 
 ## Sql dump 
 
