@@ -9,7 +9,7 @@ app.get('/', function (req, res) {
     if(err) {
       return console.error('error fetching client from pool', err);
     }
-    client.query('SELECT id, name from companies LIMIT 10000', function(err, result) {
+    client.query('SELECT id, name from companies LIMIT 100', function(err, result) {
       done();
 
       if(err) {

@@ -21,7 +21,7 @@ class CompanyController : ICompanyController {
   
   Company[] getCompanies() { 
     auto conn = client.lockConnection();
-    immutable result = conn.execStatement("SELECT id, name from companies LIMIT 10000", ValueFormat.TEXT);
+    immutable result = conn.execStatement("SELECT id, name from companies LIMIT 100", ValueFormat.TEXT);
     delete conn;
     
     import std.algorithm : map;
