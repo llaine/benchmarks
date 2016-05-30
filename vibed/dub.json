@@ -7,11 +7,12 @@
 	"copyright": "none",
 	"description": "A simple vibe.d server application.",
 	"dependencies": {
-		"vibe-d": "~>0.7.28",
-		"ddb": "~>0.2.2",
+		"vibe-d": "~>0.7.30",
+		"ddb": "~>0.2.4",
 		"asdf": "~>0.0.4"
 	},
 	"versions": [
 		"VibeDefaultMain"
-	]
+	],
+	"subConfigurations": { "asdf": "native-sse42" }	
 }

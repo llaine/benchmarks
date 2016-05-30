@@ -1,58 +1,53 @@
-import std.stdio;
-import std.algorithm: map;
-
-import vibe.d;
+import vibe.core.core;
+import vibe.http.server;
+import vibe.http.router;
 import ddb.postgres;
-import asdf;
+import asdf : serializeToJson, jsonSerializer, serializeValue;
 
-interface ICompanyController {
-  struct Company {
-      string id;
-      string name;
-  }
-  
-  @path("/")
-  Company[] getCompanies();
+import std.algorithm : map;
+import std.array : array;
+import vibe.core.connectionpool;
+
+ConnectionPool!PGConnection dbPool;
+
+
+struct Company
+{
+    int id;
+    string name;
 }
 
-class CompanyController : ICompanyController {
-  private PostgresDB db;
-  this(PostgresDB db) {
-    this.db = db;
-  }
-  
-  Company[] getCompanies() {
-    auto conn = this.db.lockConnection();
-    auto cmd = new PGCommand(conn, "SELECT id, name from companies LIMIT 100");
-    auto result = cmd.executeQuery;
-    
-    import std.algorithm : map;
-    import std.array : array;
-    
-    try {
-      return result
-          //.rangify
-          .map!(row => Company(row["id"].toString(), row["name"].toString()))
-          .array; 
-    } finally {
-      result.close;
-    }
-  }
+void bench(scope HTTPServerRequest req, scope HTTPServerResponse res)
+{
+    auto conn = dbPool.lockConnection();
+    auto cmd = new PGCommand(conn, "SELECT id, name from companies LIMIT 10");
+
+    auto result = cmd.executeQuery!(Company)();
+    Company[] companies = result.map!(a => cast(Company) a).array;
+
+    //more complex but faster
+    auto ser = jsonSerializer(a => res.writeBody(cast(string) a));
+    ser.serializeValue(companies);
+    ser.flush;
+
+    //easier version
+    //res.writeBody(companies.serializeToJson() ); 
+    result.close();
 }
 
-shared static this() {
-    PostgresDB client = new PostgresDB([
-      "host": "172.17.0.4",
-      "database": "ecratum",
-      "user": "postgres",
-      "password": "postgres"
-    ]);
-    
-	  auto router = new URLRouter;
-    router.registerRestInterface(new CompanyController(client));
+shared static this()
+{
 
+    dbPool = new ConnectionPool!PGConnection({
+        return new PGConnection(["host" : "127.0.0.1", "database" : "ecratum",
+            "user" : "postgresql", "password" : ""]);
+    });
+
+    auto router = new URLRouter;
+
+    router.get("/", &bench);
     auto settings = new HTTPServerSettings;
     settings.port = 8080;
-    
+
     listenHTTP(settings, router);
 }
