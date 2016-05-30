@@ -1,10 +1,8 @@
 import std.stdio;
+import std.algorithm: map;
 
 import vibe.d;
-import vibe.db.postgresql;
-
-shared PostgresClient client;
-
+import ddb.postgres;
 
 interface ICompanyController {
   struct Company {
@@ -17,31 +15,44 @@ interface ICompanyController {
 }
 
 class CompanyController : ICompanyController {
-  this() {}
+  private PostgresDB db;
+  this(PostgresDB db) {
+    this.db = db;
+  }
   
-  Company[] getCompanies() { 
-    auto conn = client.lockConnection();
-    immutable result = conn.execStatement("SELECT id, name from companies LIMIT 100", ValueFormat.TEXT);
-    delete conn;
+  Company[] getCompanies() {
+    auto conn = this.db.lockConnection();
+    auto cmd = new PGCommand(conn, "SELECT id, name from companies LIMIT 100");
+
+    auto result = cmd.executeQuery;
     
     import std.algorithm : map;
     import std.array : array;
-
-    return result
-      .rangify
-      .map!(row => Company(row["id"].as!PGtext, row["name"].as!PGtext))
-      .array;
+    
+    try {
+      return result
+          //.rangify
+          .map!(row => Company(row["id"].toString(), row["name"].toString()))
+          .array; 
+    } finally {
+      result.close;
+    }
   }
 }
 
 shared static this() {
-    client = new shared PostgresClient("host=172.17.0.3 dbname=ecratum user=postgres password=postgres", 8);
+    PostgresDB client = new PostgresDB([
+      "host": "172.17.0.4",
+      "database": "ecratum",
+      "user": "postgres",
+      "password": "postgres"
+    ]);
     
 	  auto router = new URLRouter;
-    router.registerRestInterface(new CompanyController);
+    router.registerRestInterface(new CompanyController(client));
 
     auto settings = new HTTPServerSettings;
     settings.port = 8080;
-
+    
     listenHTTP(settings, router);
 }

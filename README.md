@@ -32,4 +32,19 @@ Seconds | Dlang         | Node            | Ruby           |
 1m      | Req/Sec 755.51| Req/Sec 293.72  | Req/Sec 32.92 |
 
 
+## Dlang with ldc compiler
+
+`dub build --config=application --build=release --compiler=ldc2`
+
+10 threads and 10 connections
+
+Stats |  Avg    |  Stdev  | Max     | +/- Stdev
+-----------|---------|---------|---------|----------
+Latency    |  1.23ms | 1.47ms  | 45.43ms | 95.67%
+Req/Sec    |  0.91k  | 93.70   | 1.05k   | 83.40%
+    
+  90574 requests in 10.01s, 150.90MB read
+Requests/sec:   9050.47
+
+
 # 

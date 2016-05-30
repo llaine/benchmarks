@@ -1,7 +1,7 @@
 require 'sinatra'
 require 'sinatra/json'
 require 'json'
-require 'pg'
+require 'active_record'
 
 
 get '/' do

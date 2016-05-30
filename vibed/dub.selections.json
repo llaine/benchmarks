@@ -1,6 +1,7 @@
 {
 	"fileVersion": 1,
 	"versions": {
+		"ddb": "0.2.4",
 		"derelict-pq": "2.0.2",
 		"derelict-util": "2.0.6",
 		"dpq": "0.8.7",
@@ -10,7 +11,7 @@
 		"libevent": "2.0.1+2.0.16",
 		"memutils": "0.4.5",
 		"openssl": "1.1.4+1.0.1g",
-		"vibe-d": "0.7.28",
+		"vibe-d": "0.7.30-alpha.1",
 		"vibe-d-postgresql": "0.2.19"
 	}
 }
