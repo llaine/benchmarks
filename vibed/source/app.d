@@ -3,6 +3,7 @@ import std.algorithm: map;
 
 import vibe.d;
 import ddb.postgres;
+import asdf;
 
 interface ICompanyController {
   struct Company {
@@ -23,7 +24,6 @@ class CompanyController : ICompanyController {
   Company[] getCompanies() {
     auto conn = this.db.lockConnection();
     auto cmd = new PGCommand(conn, "SELECT id, name from companies LIMIT 100");
-
     auto result = cmd.executeQuery;
     
     import std.algorithm : map;

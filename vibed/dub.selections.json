@@ -1,6 +1,7 @@
 {
 	"fileVersion": 1,
 	"versions": {
+		"asdf": "0.0.4",
 		"ddb": "0.2.4",
 		"derelict-pq": "2.0.2",
 		"derelict-util": "2.0.6",
