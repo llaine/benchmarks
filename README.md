@@ -40,11 +40,9 @@ Seconds | Dlang         | Node            | Ruby           |
 
 Stats |  Avg    |  Stdev  | Max     | +/- Stdev
 -----------|---------|---------|---------|----------
-Latency    |  1.23ms | 1.47ms  | 45.43ms | 95.67%
-Req/Sec    |  0.91k  | 93.70   | 1.05k   | 83.40%
+Latency    |  640.81us |431.47us  | 33.98ms | 96.38%
+Req/Sec    |  1.66k  |103.20   | 1.82k    | 88.50%
     
-  90574 requests in 10.01s, 150.90MB read
-Requests/sec:   9050.47
-
-
-# 
+  496744 requests in 1.00m, 827.61MB read
+Requests/sec:   8278.27
+Transfer/sec:     13.79MB
