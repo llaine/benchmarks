@@ -39,8 +39,8 @@ shared static this()
 {
 
     dbPool = new ConnectionPool!PGConnection({
-        return new PGConnection(["host" : "127.0.0.1", "database" : "ecratum",
-            "user" : "postgresql", "password" : ""]);
+        return new PGConnection(["host" : "172.17.0.4", "database" : "ecratum",
+            "user" : "postgres", "password" : "postgres"]);
     });
 
     auto router = new URLRouter;

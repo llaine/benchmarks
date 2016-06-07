@@ -1,7 +1,7 @@
 {
 	"fileVersion": 1,
 	"versions": {
-		"asdf": "0.0.4",
+		"asdf": "0.0.5",
 		"ddb": "0.2.4",
 		"libasync": "0.7.9",
 		"libev": "5.0.0+4.04",

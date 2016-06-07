@@ -1,7 +1,7 @@
 var express = require('express');
 var app = express();
 var pg = require('pg');
-var conString = "postgres://postgres:postgres@172.17.0.3/ecratum";
+var conString = "postgres://postgres:postgres@172.17.0.4/ecratum";
 
 
 app.get('/', function (req, res) {
