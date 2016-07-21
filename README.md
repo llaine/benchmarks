@@ -36,7 +36,7 @@ Seconds | Dlang         | Node            | Ruby           |
 
 `dub build --config=application --build=release --compiler=ldc2`
 
-10 threads and 10 connections
+10 threads and 10 connections for 1 minute
 
 Stats |  Avg    |  Stdev  | Max     | +/- Stdev
 -----------|---------|---------|---------|----------
