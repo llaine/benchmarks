@@ -2,7 +2,7 @@
 
 Tiny comparison between dlang using Vibe.d, nodejs using express and Ruby with Sinatra.
 
-My point here is to do a benchmark on a real daily use case, such as loading n entries from a DB and showing them as JSON using a normal framework. By normal I mean something that is not too much low level.
+My point here is to do a benchmark on a real daily use case, such as loading n entries from a DB and showing them as JSON using a normal framework. By normal I mean something that is not too much fancy with early optimisation.
 
 ## Sql dump 
 
