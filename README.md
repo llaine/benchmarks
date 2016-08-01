@@ -22,7 +22,7 @@ All the benchmarks are made with [wrk](https://github.com/wg/wrk)
 Command used : `wrk -t10 -c10 -d10s http://localhost:3000`
 
 - Node : v5.11.0 with express `NODE_ENV=production node app.js`
-- JRuby : JRuby 9.2.1.0 with roda and torquebox `torquebox jar ; java -jar ruby.jar;`
+- JRuby : JRuby 9.1.2.0 with roda and torquebox `torquebox jar ; java -jar ruby.jar;`
 - Dlang : DMD64 D Compiler v2.071.0 with vibe.d `dub build --config=application --build=release ; ./vibed`
 
 Seconds | Dlang         | Node            | JRuby          |
