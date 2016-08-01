@@ -17,7 +17,7 @@ All the benchmarks are made with [wrk](https://github.com/wg/wrk)
 - Computer : Lenovo thinkpad t460s
 
 
-# 10 users per second
+# The bench
 
 Command used : `wrk -t10 -c10 -d10s http://localhost:3000`
 
