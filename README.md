@@ -8,7 +8,7 @@ My point here is to do a benchmark on a real daily use case, such as loading n e
 
 1500 entries in a database selecting only 100
 
-All the benchmarks are made with [wg](https://github.com/wg/wrk)
+All the benchmarks are made with [wrk](https://github.com/wg/wrk)
 
 # Env for all benchmarks
 
@@ -19,10 +19,10 @@ All the benchmarks are made with [wg](https://github.com/wg/wrk)
 
 # 10 users per second
 
-`wrk -t10 -c10 -d10s http://localhost:3000`
+Command used : `wrk -t10 -c10 -d10s http://localhost:3000`
 
 - Node : v5.11.0 with express `NODE_ENV=production node app.js`
-- Ruby : 2.2.3 with sinatra and Puma `rackup -E production;`
+- JRuby : JRuby 9.2.1.0 with roda and torquebox `torquebox jar ; java -jar ruby.jar;`
 - Dlang : DMD64 D Compiler v2.071.0 with vibe.d `dub build --config=application --build=release ; ./vibed`
 
 Seconds | Dlang         | Node            | JRuby          |
