@@ -13,7 +13,7 @@ All the benchmarks are made with [wrk](https://github.com/wg/wrk)
 # Env for all benchmarks
 
 - OS : Fedora 23 x86_64
-- Kernel : 4.4.9-300.fc23.x86_64
+- Kernel : 4.6.4-201.fc23.x86_64
 - Computer : Lenovo thinkpad t460s
 
 
