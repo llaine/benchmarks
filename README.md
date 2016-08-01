@@ -1,6 +1,6 @@
 # Benchmarks
 
-Tiny comparison between dlang using Vibe.d, nodejs using express and Ruby with Sinatra.
+Tiny comparison between dlang using Vibe.d, nodejs using express and JRuby with Roda
 
 My point here is to do a benchmark on a real daily use case, such as loading n entries from a DB and showing them as JSON using a normal framework. By normal I mean something that is not too much fancy with early optimisation.
 
@@ -25,11 +25,11 @@ All the benchmarks are made with [wg](https://github.com/wg/wrk)
 - Ruby : 2.2.3 with sinatra and Puma `rackup -E production;`
 - Dlang : DMD64 D Compiler v2.071.0 with vibe.d `dub build --config=application --build=release ; ./vibed`
 
-Seconds | Dlang         | Node            | Ruby           |
---------| ------------- |:---------------:| --------------:|
-10s     | Req/Sec 717.65| Req/Sec 284.25  | Req/Sec 32.74  |
-30s     | Req/Sec 632.92| Req/Sec 300.80  | Req/Sec 33.13 |
-1m      | Req/Sec 755.51| Req/Sec 293.72  | Req/Sec 32.92 |
+Seconds | Dlang         | Node            | JRuby          |
+--------| ------------- |:---------------:|---------------:|
+10s     | Req/Sec 717.65| Req/Sec 284.25  | Req/Sec 298.11 |
+30s     | Req/Sec 632.92| Req/Sec 300.80  | Req/Sec 290.30 |
+1m      | Req/Sec 755.51| Req/Sec 293.72  | Req/Sec 377.86 |
 
 
 ## Dlang with ldc compiler

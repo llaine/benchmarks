@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="RUBY_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <content url="file://$MODULE_DIR$" />
+    <orderEntry type="jdk" jdkName="rbenv: jruby-9.1.2.0" jdkType="JRUBY_SDK" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" scope="PROVIDED" name="addressable (v2.4.0, rbenv: jruby-9.1.2.0) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="bundler (v1.12.5, rbenv: jruby-9.1.2.0) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="capybara (v2.7.1, rbenv: jruby-9.1.2.0) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="erubis (v2.7.0, rbenv: jruby-9.1.2.0) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="jdbc-postgres (v9.4.1206, rbenv: jruby-9.1.2.0) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="mime-types (v3.1, rbenv: jruby-9.1.2.0) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="mime-types-data (v3.2016.0521, rbenv: jruby-9.1.2.0) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="minitest (v5.9.0, rbenv: jruby-9.1.2.0) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="minitest-hooks (v1.4.0, rbenv: jruby-9.1.2.0) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="multi_json (v1.12.1, rbenv: jruby-9.1.2.0) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="nokogiri (v1.6.8, rbenv: jruby-9.1.2.0) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="rack (v2.0.1, rbenv: jruby-9.1.2.0) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="rack-test (v0.6.3, rbenv: jruby-9.1.2.0) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="rack-unreloader (v1.5.0, rbenv: jruby-9.1.2.0) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="rack_csrf (v2.5.0, rbenv: jruby-9.1.2.0) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="roda (v2.16.0, rbenv: jruby-9.1.2.0) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="sequel (v4.36.0, rbenv: jruby-9.1.2.0) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="tilt (v2.0.5, rbenv: jruby-9.1.2.0) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="torquebox-core (v4.0.0.beta3, rbenv: jruby-9.1.2.0) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="torquebox-web (v4.0.0.beta3, rbenv: jruby-9.1.2.0) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="xpath (v2.0.0, rbenv: jruby-9.1.2.0) [gem]" level="application" />
+  </component>
+</module>
