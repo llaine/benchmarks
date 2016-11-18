@@ -20,7 +20,7 @@ struct Company
 void bench(scope HTTPServerRequest req, scope HTTPServerResponse res)
 {
     auto conn = dbPool.lockConnection();
-    auto cmd = new PGCommand(conn, "SELECT id, name from companies LIMIT 10");
+    auto cmd = new PGCommand(conn, "SELECT id, name from companies LIMIT 100");
 
     auto result = cmd.executeQuery!(Company)();
     Company[] companies = result.map!(a => cast(Company) a).array;
@@ -31,7 +31,7 @@ void bench(scope HTTPServerRequest req, scope HTTPServerResponse res)
     ser.flush;
 
     //easier version
-    //res.writeBody(companies.serializeToJson() ); 
+    //res.writeBody(companies.serializeToJson() );
     result.close();
 }
 
