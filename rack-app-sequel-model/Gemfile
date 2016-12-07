@@ -1,0 +1,9 @@
+source 'https://rubygems.org'
+
+gem 'rack'
+gem 'rack-app', require: 'rack/app'
+gem 'loader'
+gem 'puma'
+gem 'sequel'
+gem 'pg', platforms: :ruby
+gem 'jdbc-postgres', platforms: :jruby
